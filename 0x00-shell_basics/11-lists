@@ -1,0 +1,2 @@
+#!/bin/bash
+find ./ ../ /boot -maxdepth 0 -exec ls -l {} \;
