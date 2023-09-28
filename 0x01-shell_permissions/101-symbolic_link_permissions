@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type l | xargs chown vincent:staff
+chown -h vincent:staff _hello
