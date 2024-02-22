@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This bash script displays "Best School" 10 times using a for loop
+
+file="/etc/passwd"
+while IFS=: read -r user _ uid _ _ home;
+	do
+		home=$(echo "$home" | cut -d: -f1)
+	    echo "$user:$uid:$home"
+	done < "$file"
