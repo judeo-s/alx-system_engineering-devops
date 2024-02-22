@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This bash script displays "Best School" 10 times using a for loop
+# This bash script that displays the content of the current directory
 
 for i in *;
 	do
