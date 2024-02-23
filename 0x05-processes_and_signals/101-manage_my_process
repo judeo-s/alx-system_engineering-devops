@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+# This script manages the `manage_my_process` script.
+
+pid_file=/var/run/my_process.pid
+
+if [[ $UID != 0 ]]; then
+	echo "You must be root!"
+	exit 1
+fi
+
+function delete()
+{
+	rm -f $pid_file 2> /dev/null
+}
+
+function kill_p()
+{
+	if [ -e $pid_file ]; then
+		kill "$(cat $pid_file)" 2> /dev/null
+		delete
+	fi
+}
+
+function start_p()
+{
+	./manage_my_process &
+	echo "$!" > $pid_file # save the PID for the background process
+}
+
+case "$1" in
+	start)
+		start_p
+		echo "manage_my_process started";;
+	stop)
+		kill_p
+		echo "manage_my_process stopped";;
+	restart)
+		kill_p
+		start_p
+		echo "manage_my_process restarted";;
+	*)
+		echo "Usage: manage_my_process {start|stop|restart}"
+		exit 1;;
+esac
