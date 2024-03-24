@@ -1,1 +1,75 @@
-https://drive.google.com/file/d/11oSvYxuWOMitBYdq2BjWc12eCm8zOmTp/view?usp=sharing
+<-------------------------[ Image ] ------------------------->
+https://drive.google.com/file/d/1uRAk6OqFT-55lsx4gJ60CgMm7HeV0pkf/view?usp=drive_link
+
+
+<-------------------------[ Components ] ------------------------->
+Server: 
+	A server is a computer program that provides services to other computer
+	programs at their request.
+	In the image, the web server, application server, and database server are
+	all servers.
+
+Domain name:
+	A domain name is a human-readable identifier that corresponds to a specific
+	IP address.
+	In the image, the domain name is “foobar.com”.
+
+DNS record:
+	A DNS record is a data record in the Domain Name System that defines how a
+	domain name translates to an IP address.
+	There are many types of DNS records, but in the image the “www” record is a
+	CNAME record that points to “foobar.com”.
+
+Web server:
+	A web server is a program that stores, processes, and delivers web content
+	to users' browsers.
+	In the image, the web server receives HTTP requests from the client and
+	sends HTTP responses.
+
+Application server:
+	An application server is a software platform that executes application
+	requests.
+	It provides an environment for running applications and manages their
+	execution.
+	In the image, the application server likely generates the content that the
+	web server sends back to the user.
+
+Database server:
+	A database server is a server program designed to manage access to a
+	centralized database.
+	In the image, the database server stores the data that the application
+	server uses to generate content.
+
+Client:
+	The client is a computer program that makes requests to a server for
+	resources or services.
+	In the image, the client is the user's web browser.
+
+Communication:
+	The client communicates with the web server using the Hypertext Transfer
+	Protocol (HTTP).
+	HTTP is a request-response protocol between a client and server.
+	When a user wants to access a website, their web browser sends an HTTP
+	request to the web server.
+	The web server then processes the request and sends back an HTTP response.
+	The HTTP response may include the HTML content of the webpage, as well as
+	images, videos, and other resources.
+
+
+<-------------------------[ Issues ] ------------------------->
+SPOF (Single Point of Failure):
+	The infrastructure in the image has a few potential SPOFs.
+	For example, if the web server fails, then no one will be able to access the
+	website.
+	Similarly, if the database server fails, then the application server will
+	not be able to access the data it needs to generate content.
+
+Downtime when maintenance needed:
+	If maintenance is needed on any of the servers, then the website will be
+	unavailable for some time.
+	This can be disruptive to users.
+
+Cannot scale if too much incoming traffic:
+	If the web server receives too much traffic, it may not be able to keep up
+	with the demand.
+	This can cause the website to slow down or become unavailable.
