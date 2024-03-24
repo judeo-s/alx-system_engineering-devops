@@ -1,0 +1,85 @@
+<-------------------------[ Image ] ------------------------->
+https://drive.google.com/file/d/1jAMz_AqfJ6ygM1itfmIv5UR5P7XlJmqn/view?usp=sharing
+
+
+<-------------------------[ Additional Elements ] ------------------------->
+Firewalls:
+	Firewalls act as security barriers, filtering incoming and outgoing traffic
+	based on predefined rules.
+	They help protect the infrastructure from various cyberattacks by blocking
+	malicious traffic and only allowing authorized connections.
+
+Monitoring Solutions:
+	Monitoring solutions are crucial for proactively identifying and
+	troubleshooting issues before they impact users.
+	They can track various metrics, including server performance, application
+	errors, resource utilization, and network traffic.
+
+Web Server with SSL:
+	Secure Sockets Layer (SSL) encrypts communication between the web server and
+	the user's browser.
+	This encrypts sensitive data like usernames, passwords, and other
+	information transmitted during web sessions, safeguarding it from
+	eavesdropping or tampering.
+	HTTPS (Hypertext Transfer Protocol Secure) refers to HTTP traffic encrypted
+	with SSL/TLS.
+
+
+<----------[ Why HTTPS and Terminating SSL at Load Balancer ]---------->
+HTTPS:
+	Implementing HTTPS with SSL/TLS encryption is essential for securing
+	communication between the web server and the client.
+	It protects sensitive user data and ensures the integrity of the data being
+	exchanged.
+
+Terminating SSL at Load Balancer:
+	Terminating SSL at the load balancer can improve performance by offloading
+	encryption/decryption tasks from web servers.
+
+
+<-------------------------[ Monitoring Solution ] ------------------------->
+Monitoring is used for proactively identifying and troubleshooting issues before
+they impact users and infrastructure as a whole.
+
+Monitoring tools collect data by:
+	Agent-Based Monitoring:
+		Agent softwares are installed directly on the servers.
+		These agents collect data locally and send it to the central monitoring
+		system
+
+	SNMP (Simple Network Management Protocol):
+		SNMP monitoring collects status, health, and performance data from
+		network devices.
+		It uses SNMP agents installed on servers to query information from
+		managed devices like routers, switches, and server.
+
+Ways to monitor web server QPS:
+	Server-side monitoring tools:
+		These tools can be installed directly on the web server to track metrics
+		like QPS, response times, and resource usage.
+
+	Cloud-based monitoring services:
+		These services offer comprehensive monitoring solutions, often including
+		QPS monitoring.
+
+	Log analysis tools:
+		These tools can analyze web server logs to extract QPS data.
+		They typically require additional configuration to parse logs and calculate QPS.
+
+
+<-------------------------[ Issues ] ------------------------->
+Terminating SSL at the load balancer:
+	The load balancer would need to possess the private key required for
+	decryption, which introduces a security risk if the load balancer is
+	compromised.
+
+Single MySQL Server Write Point:
+	Having only one MySQL server capable of accepting writes creates a Single
+	Point of Failure (SPOF).
+	If this server fails, the application may not function correctly as it won't
+	be able to write data to the database.
+
+Homogeneous Servers:
+	Having all servers with the same components (database, web server, and
+	application server) can be a disadvantage.
+	If a vulnerability affects one component, all servers might be susceptible.
