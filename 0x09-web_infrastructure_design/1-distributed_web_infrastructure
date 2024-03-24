@@ -1,0 +1,82 @@
+<-------------------------[ Image ] ------------------------->
+https://drive.google.com/file/d/1RrolD1baeJNvuPtfUlcpGcfvZZVjf2Qv/view?usp=sharing
+
+
+<----------------- [ Additional Elements ] ------------------>
+Load balancer:
+	A load balancer distributes incoming traffic across multiple servers,
+	preventing any single server from becoming overloaded.
+	This improves responsiveness and overall system availability.
+
+Multiple web servers, application servers, and database servers:
+	By having multiple instances of these servers, the load is shared, improving
+	scalability and redundancy.
+	If one server fails, the others can handle the traffic.
+
+
+<----------------- [ Load Balancer Distribution Algorithm ] ------------------>
+Round Robin:
+	Distributes requests evenly across all available servers, sending each
+	request to the next server in line.
+	This is a simple and effective approach for most scenarios.
+
+Least Connections:
+	Directs requests to the server with the fewest current connections.
+	This ensures a more balanced distribution of workload and can improve
+	performance.
+
+
+<-----------------[ Active-Active vs Active-Passive ] --------------------->
+The infrastructure implemeted in the image above is active-active.
+Active-Active:
+	Distributes traffic across all available servers simultaneously.
+	This provides high availability and redundancy, as any server can handle
+	requests if another fails.
+
+Active-Passive:
+	Only one server is actively processing requests (active), while the others
+	are passive backups.
+	If the active server fails, a passive server is automatically activated to take over.
+	This is simpler to manage but offers less redundancy compared to active-active.
+
+
+<------------------------[ Database Primary-Replica Cluster ] ------------------------->
+A database primary-replica (master-slave) cluster consists of two or more servers:
+	Primary node (master):
+		Receives all write requests from the application server and updates the
+		database.
+
+	Replica nodes (slaves):
+		Continuously replicate data from the primary node, ensuring they have an
+		up-to-date copy of the database.
+
+
+<------------------------[ Issues ] ------------------------->
+SPOF (Single Point of Failure):
+	Load balancer:
+		If the load balancer fails, no traffic will be distributed to the
+		servers.
+
+	Database primary node:
+		If the primary database node fails in a primary-replica cluster without
+		a configured failover mechanism, the application may not function
+		correctly.
+
+Security Issues:
+	No firewall:
+		A firewall acts as a security barrier, filtering incoming and outgoing
+		traffic based on predefined security rules.
+		Without a firewall, the system is vulnerable to malicious attacks.
+
+	No HTTPS:
+		Hypertext Transfer Protocol Secure (HTTPS) encrypts communication
+		between the web server and the client's browser.
+		This protects sensitive data like usernames and passwords from being
+		intercepted.
+
+Missing Monitoring:
+	The image doesn't show any monitoring system.
+	Monitoring is crucial for identifying and troubleshooting issues before they
+	impact users.
+	A monitoring system can track server performance, application errors, and
+	resource utilization.
