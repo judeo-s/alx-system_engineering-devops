@@ -1,0 +1,21 @@
+<-------------------------[ Image ] ------------------------->
+https://drive.google.com/file/d/1Aravbx8zSfhIylZJ0oi2q_igOAajHIU1/view?usp=sharing
+
+
+<-------------------------[ Additional Components ] ------------------------->
+Load balancers:
+The addition of load balancers working in a cluster adds benefits to the infrastructure
+by:
+	Increased Scalability:
+		A single load balancer can become a bottleneck if it receives a high volume
+		of traffic.
+		By using a cluster of load balancers, you can distribute traffic across multiple
+		devices, improving the infrastructure's ability to handle surges in traffic.
+		This allows the system to scale horizontally by adding more load balancers as needed.
+
+	Improved Availability and Fault Tolerance:
+		If a single load balancer fails in a cluster, the other load balancers can continue
+		to distribute traffic, minimizing downtime and ensuring service continuity.
+		wThis redundancy helps achieve high availability for your web application.
+	
+
