@@ -47,7 +47,7 @@ Client:
 
 Communication:
 	The client communicates with the web server using the Hypertext Transfer
-	Protocol (HTTP).
+	Protocol (HTTP), over a network.
 	HTTP is a request-response protocol between a client and server.
 	When a user wants to access a website, their web browser sends an HTTP
 	request to the web server.
