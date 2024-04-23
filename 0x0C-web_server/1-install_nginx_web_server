@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# This script installs the Nginx web server and configures the initial "Hello
+# world" page.
+
+if [[ $EUID -ne 0 ]]; then
+  echo "ERROR: You need to be root to run this script" 1>&2
+  exit 1
+fi
+
+apt-get update
+apt-get install -y nginx
+
+echo "Hello World!" > /var/www/html/index.html
+
+service nginx start
+
+if [[ ! $? ]]; then
+  echo "ERROR: Failed to start Nginx" 1>&2
+  exit 1
+fi
