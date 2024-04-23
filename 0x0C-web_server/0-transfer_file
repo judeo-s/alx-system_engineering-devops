@@ -2,4 +2,5 @@
 # A script to transfer files using arguments
 # and the scp command
 
-scp -i $4 $1 $3@$2:~/
+if [ "$#" -ge 4 ]; then
+	scp -o StrictHostKeyChecking=no -i $4 $1 $3@$2:~/
