@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
+# A script to transfer files using arguments
+# and the scp command
 
 scp -i $4 $1 $3@$2:~/
