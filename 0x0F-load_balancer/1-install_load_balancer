@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+#Installs, configures, and starts the haproxy load balancer
+
+apt-get install --no-install-recommends -y software-properties-common
+add-apt-repository -y ppa:vbernat/haproxy-2.9
+apt-get install -y haproxy=2.9.\*
+
+cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.bak
+
+HA_CONFIG=\
+"
+
+frontend load_balancer
+  mode http
+  bind *:80
+  default_backend web_servers
+
+backend web_servers
+  mode http
+  balance roundrobin
+  server web-01 54.90.33.139:80 check
+  server web-02 54.172.84.11:80 check
+"
+
+bash -c "echo -e '$HA_CONFIG' >> /etc/haproxy/haproxy.cfg"
+
+if [ "$(pgrep -c haproxy)" -le 0 ]; then
+	service haproxy start
+else
+	service haproxy restart
+fi
