@@ -32,6 +32,6 @@ if __name__ == "__main__":
 
         for item in todo_list:
             if item['userId'] == ID and item['completed']:
-                print(f'\t{item["title"]}')
+                print(f'\t {item["title"]}')
     else:
         pass
