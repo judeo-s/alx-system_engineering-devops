@@ -31,8 +31,7 @@ if __name__ == "__main__":
         print(f'Employee {name} is done with tasks({completed}/{total}):')
 
         for item in todo_list:
-            if item['userId'] == ID and item['completed'] == True:
+            if item['userId'] == ID and item['completed']:
                 print(f'\t{item["title"]}')
     else:
         pass
-
