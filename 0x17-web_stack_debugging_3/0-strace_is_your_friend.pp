@@ -1,3 +1,5 @@
+# this solves misconfigurations
+
 $settings_file='/var/www/html/wp-settings.php'
 file { $settings_file:
   ensure => file,
