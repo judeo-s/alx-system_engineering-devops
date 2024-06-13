@@ -1,3 +1,5 @@
+# Increases the amount of traffic Nginx server handles
+
 # Increase ULIMIT of the default file
 exec { 'fix--for-nginx':
   command => 'sed -i "s/15/4096/" /etc/default/nginx',
